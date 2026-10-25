@@ -2,7 +2,8 @@
 /build/
 /buildtest/
 /dist/
-/docs/
+/docs/*
+!/docs/lzy-notes/
 /nbproject/
 /patches/
 /*.properties
