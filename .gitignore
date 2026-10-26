@@ -2,8 +2,6 @@
 /build/
 /buildtest/
 /dist/
-/docs/*
-!/docs/lzy-notes/
 /nbproject/
 /patches/
 /*.properties
@@ -23,3 +21,4 @@ hs_err_pid*.log
 /.agents/
 AGENTS.md
 AGENTS.override.md
+/.idea/
