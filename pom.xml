@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit-platform.version>1.12.2</junit-platform.version>
         <junit-jupiter.version>5.12.2</junit-jupiter.version>
-        <opentelemetry.version>1.50.0</opentelemetry.version>
+        <opentelemetry.version>1.67.0</opentelemetry.version>
     </properties>
 
     <dependencies>
@@ -71,7 +71,7 @@
         <dependency>
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
-            <version>0.11.0</version>
+            <version>0.14.2</version>
         </dependency>
 
         <dependency>
@@ -89,7 +89,26 @@
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk-common</artifactId>
-            <version>3.66.0</version>
+            <version>3.97.2</version>
+            <!-- 切断它管理的 jackson-databind 2.21.6（命中 GHSA-cxp5/GHSA-wv8q），由下面的显式依赖替换 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.22.4</version>
+        </dependency>
+        <!-- 与 databind 2.22.4 同一发布配套；OCI SDK 传递来的 2.21 会被就近原则覆盖 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.22</version>
         </dependency>
 
         <dependency>
