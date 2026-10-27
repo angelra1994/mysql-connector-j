@@ -22,3 +22,5 @@ hs_err_pid*.log
 /.agents/
 AGENTS.md
 AGENTS.override.md
+/target/
+/.idea/
